@@ -1,68 +1,130 @@
-# React + TypeScript + Vite
+# AI Image Analyzer 🖼️🤖
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React app that uses [Transformers.js](https://huggingface.co/docs/transformers.js) to run **image classification directly in the browser**, powered by the [Xenova ViT model](https://huggingface.co/Xenova/vit-base-patch16-224).
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✅ Upload images from your device or paste a URL  
+✅ Real-time image classification (top-5 labels)  
+✅ Animated progress indicators  
+✅ Clean Tailwind CSS UI  
+✅ No server required—runs fully in the browser  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Live Demo
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+👉 **[Coming Soon / your deployment URL]**
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🛠️ Getting Started
+
+Follow these steps to run the project locally.
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/ai-image-analyzer.git
+cd ai-image-analyzer
+````
+
+### 2. Install dependencies
+
+Make sure you have **Node.js >= 16** installed.
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 3. Start the development server
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm run dev
+```
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
+The app will be available at [http://localhost:5173](http://localhost:5173) (or the port shown in your console).
+
+---
+
+## ⚙️ Build for production
+
+```bash
+npm run build
+```
+
+Then preview the production build:
+
+```bash
+npm run preview
+```
+
+---
+
+## 🧠 Model Details
+
+This app uses the **ViT Base Patch16 224** model quantized for browser use:
+
+* Model: [`Xenova/vit-base-patch16-224`](https://huggingface.co/Xenova/vit-base-patch16-224)
+* Pipeline: `image-classification`
+* Runs entirely in the browser via WebAssembly and ONNX.
+
+---
+
+## 🖇️ Project Structure
+
+```
+src/
+  App.tsx         # Main React component
+  main.tsx        # Entry point
+  index.css       # Tailwind styles
+```
+
+---
+
+## 🪧 Notes
+
+* For **security reasons**, some image URLs (e.g., protected or CORS-restricted) cannot be loaded. In those cases, download the image and use **Upload from Device**.
+* First load may take \~15–30 seconds to download and initialize the model.
+
+---
+
+## 🧑‍💻 Contributing
+
+Pull requests and issues are welcome!
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a pull request
+
+---
+
+## 📄 License
+
+MIT License
+
+---
+
+## 🙏 Acknowledgments
+
+* [Transformers.js](https://github.com/xenova/transformers.js)
+* [Hugging Face](https://huggingface.co/)
+* [Tailwind CSS](https://tailwindcss.com/)
+
+```
+
+---
+
+### ✨ Tips:
+- **Update the repository URL** in the clone instructions.
+- **Add a screenshot** at the top if you want (e.g., `![Screenshot](./screenshot.png)`).
+- **Fill in the live demo link** if you deploy to Vercel or Netlify.
+
+If you’d like, I can also help you prepare a **`package.json`**, **Vercel config**, or any other docs!
+```
+
     },
   },
 ])
